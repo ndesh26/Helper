@@ -26,13 +26,15 @@ sudo dnf install vim git git-email mplayer ruby ruby-devel \
     docker-engine docker-compose python google-chrome-stable
 
 # Download and install powerline shell and powerline fonts
-cd ~/Downloads/
+cd ~
 git clone git@github.com:banga/powerline-shell.git
-cd powerline-shell/
+mv powerline-shell .powerline
+cd .powerline/
 ./install.py
-cd ../
+cd ~ 
 git clone git@github.com:powerline/fonts.git
-cd fonts/
+mv fonts .fonts
+cd .fonts/
 ./install.sh
 
 # Cofigure Mesa
