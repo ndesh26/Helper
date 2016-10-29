@@ -23,16 +23,16 @@ EOF
 sudo dnf install vim git git-email mplayer ruby ruby-devel \
     openssl-devel mutt meld vlc i3 i3status dmenu i3lock xbacklight feh conky \
     libstdc++ libgcc glibc-devel libvdpau ddd libxcb-devel elfutils-libelf-devel \
-    docker-engine docker-compose python google-chrome-stable
+    docker-engine docker-compose python google-chrome-stable qbittorrent the_silver_searcher
 
 # Download and install powerline shell and powerline fonts
 cd ~
-git clone git@github.com:banga/powerline-shell.git
+git clone https://github.com/banga/powerline-shell.git
 mv powerline-shell .powerline
 cd .powerline/
 ./install.py
 cd ~ 
-git clone git@github.com:powerline/fonts.git
+git clone https://github.com/powerline/fonts.git
 mv fonts .fonts
 cd .fonts/
 ./install.sh
@@ -40,16 +40,16 @@ cd .fonts/
 # Cofigure Mesa
 sudo dnf install flex bison imake libtool xorg-x11-proto-devel libdrm-devel \
   gcc-c++ xorg-x11-server-devel libXi-devel libXmu-devel libXdamage-devel git \
-  expat-devel llvm-devel python-mako
+  expat-devel llvm-devel python-mako redhat-rpm-config libvdpau-devel libxshmfence-devel
 cd ~/
-git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git & \
-    git clone ssh://git.freedesktop.org/git/mesa/mesa
+git clone git://anongit.freedesktop.org/mesa/mesa
 cd mesa/
 ./autogen.sh --enable-dri3 --with-dri-drivers="radeon" --with-gallium-drivers="radeonsi" --with-egl-platforms="drm" --enable-vdpau --with-vdpau-libdir="/usr/lib64/vdpau"
 make -j 2
 sudo make install
 
 # Configure linux
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 cd linux/
 cp /boot/config* ./.config
 make -j 2
@@ -87,7 +87,3 @@ cd ~/rails
 git clone https://ndesh418@bitbucket.org/ndesh418/oars.git
 cd oars
 docker-compose build
-
-cd
-git clone git@github.com:ndesh26/ndesh26.github.io.git
-mv ndesh26.github.io poole
