@@ -33,11 +33,13 @@ alias e='cd /run/media/ndesh/E'
 
 alias upd='sudo dnf update'
 alias inst='sudo dnf install'
-alias me='sudo ~/.scripts/mount.sh E sda4'
-alias mfed='sudo ~/.scripts/mount.sh F sda5'
+alias me='sudo ~/.scripts/mount.sh E sda7'
+alias mfed='sudo ~/.scripts/mount.sh F sda6'
 alias m='sudo ~/.scripts/mount.sh'
 alias mydrv='LIBGL_DRIVERS_PATH=~/mesa/lib LD_LIBRARY_PATH=~/mesa/lib:${LD_LIBRARY_PATH} $@'
 
+alias mesa='~/.scripts/make-mesa.sh'
+alias linux='~/.scripts/linux-build.sh'
 
 LD_LIBRARY_PATH=~/Downloads/leda/LEDA 
 export LD_LIBRARY_PATH
