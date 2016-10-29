@@ -1,0 +1,25 @@
+set ssl_starttls=yes
+set ssl_force_tls=yes
+set imap_user = 'nayan26deshmukh'
+set imap_pass = 'YOUR_PASSWORD'
+set from='nayan26deshmukh@gmail.com'
+set realname='Nayan Deshmukh'
+set folder = imaps://imap.gmail.com/
+set spoolfile = imaps://imap.gmail.com/INBOX
+set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+set smtp_url = 'smtp://nayan26deshmukh@smtp.gmail.com:587/'
+set smtp_pass = 'YOUR_PASSWORD'
+set move = no
+set imap_keepalive = 900
+
+bind index G imap-fetch-mail
+
+alias christian deathsimple@vodafone.de (Christian König)
+alias me ndesh@iitk.ac.in (Nayan Deshmukh)
+alias leo leo.liu@amd.com (Leo Liu)
+alias michel michel@daenzer.net (Michel Dänzer)
+alias mesa mesa-dev@lists.freedesktop.org (Mesa-dev)
+alias dri dri-devel@lists.freedesktop.org (DRI Development)
