@@ -23,7 +23,8 @@ EOF
 sudo dnf install vim git git-email mplayer ruby ruby-devel \
     openssl-devel mutt meld vlc i3 i3status dmenu i3lock xbacklight feh conky \
     libstdc++ libgcc glibc-devel libvdpau ddd libxcb-devel elfutils-libelf-devel \
-    docker-engine docker-compose python google-chrome-stable qbittorrent the_silver_searcher
+    docker-engine docker-compose python google-chrome-stable qbittorrent \
+    the_silver_searcher prozilla
 
 # Download and install powerline shell and powerline fonts
 cd ~
