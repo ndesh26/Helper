@@ -1,0 +1,9 @@
+[sendemail]
+    smtpEncryption = tls
+    smtpServer = smtp.gmail.com
+    smtpUser = nayan26deshmukh@gmail.com
+    smtpServerPort = 587
+    smtpPass = *********** 
+[user]
+	name = Nayan Deshmukh
+	email = nayan26deshmukh@gmail.com
