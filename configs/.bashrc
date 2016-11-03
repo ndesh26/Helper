@@ -40,6 +40,8 @@ alias mydrv='LIBGL_DRIVERS_PATH=~/mesa/lib LD_LIBRARY_PATH=~/mesa/lib:${LD_LIBRA
 
 alias mesa='~/.scripts/make-mesa.sh'
 alias linux='~/.scripts/linux-build.sh'
+alias list-kernel='~/.scripts/list-kernels.sh'
+alias delete-kernel='~/.script/delete-kernels.sh'
 
 LD_LIBRARY_PATH=~/Downloads/leda/LEDA 
 export LD_LIBRARY_PATH
