@@ -89,7 +89,7 @@ nnoremap Q !!sh<CR>
 
                         " --------------------------------CONFIGS----------------------------- "
 
-let NERDTreeIgnore=['\.pyc$', '__pycache__']                         " Ignoring .pyc files and __pycache__ folder
+let NERDTreeIgnore=['\.pyc$', '__pycache__', '\.o']                         " Ignoring .pyc files and __pycache__ folder
 let g:go_fmt_command = "goimports"                                   " Rewrite go file with correct imports
 set wildignore+=*/bin/*,main,*/__pycache__/*,*.pyc,*.swp
 set backspace=indent,eol,start                                       " Make backspace work with end of line and indents
