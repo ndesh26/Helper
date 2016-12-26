@@ -82,9 +82,3 @@ sudo dnf install --allowerasing sqlite-devel
 sudo yum -y install texlive texlive-latex
 sudo yum -y install texlive-collection-latex
 
-# Get My projects
-mkdir ~/rails
-cd ~/rails
-git clone https://ndesh418@bitbucket.org/ndesh418/oars.git
-cd oars
-docker-compose build
