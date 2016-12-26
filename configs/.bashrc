@@ -41,7 +41,7 @@ alias mydrv='LIBGL_DRIVERS_PATH=~/mesa/lib LD_LIBRARY_PATH=~/mesa/lib:${LD_LIBRA
 alias mesa='~/.scripts/make-mesa.sh'
 alias linux='~/.scripts/linux-build.sh'
 alias list-kernel='~/.scripts/list-kernels.sh'
-alias delete-kernel='~/.script/delete-kernels.sh'
+alias delete-kernel='~/.scripts/delete-kernels.sh'
 
 LD_LIBRARY_PATH=~/Downloads/leda/LEDA 
 export LD_LIBRARY_PATH
@@ -49,3 +49,6 @@ export LD_LIBRARY_PATH
 export HISTFILESIZE=
 export HISTSIZE=
 export JAVA_HOME=/usr/java/jdk1.8.0_102/
+export PATH="$PATH:/home/$USER/arcanist/arcanist/bin/:/home/$USER/Downloads/android-studio/bin/"
+export EDITOR="vim"
+export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk-1.8.0.111-3.b16.fc25.x86_64
