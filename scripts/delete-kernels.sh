@@ -15,6 +15,7 @@ then
     sudo rm -rf "/boot/initramfs-${x}.img"
     sudo rm -rf "/boot/vmlinuz-${x}"
     sudo rm -rf "/boot/System.map-${x}"
+    sudo rm -rf "/usr/lib/modules/${x}"
 fi
 rm temp.txt
-./grub-init.sh
+~/.scripts/grub-init.sh
