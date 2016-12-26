@@ -1,21 +1,49 @@
-set ssl_starttls=yes
-set ssl_force_tls=yes
-set imap_user = 'nayan26deshmukh'
-set imap_pass = 'YOUR_PASSWORD'
-set from='nayan26deshmukh@gmail.com'
-set realname='Nayan Deshmukh'
-set folder = imaps://imap.gmail.com/
-set spoolfile = imaps://imap.gmail.com/INBOX
-set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
-set header_cache = "~/.mutt/cache/headers"
-set message_cachedir = "~/.mutt/cache/bodies"
-set certificate_file = "~/.mutt/certificates"
-set smtp_url = 'smtp://nayan26deshmukh@smtp.gmail.com:587/'
-set smtp_pass = 'YOUR_PASSWORD'
-set move = no
-set imap_keepalive = 900
+# vim: ft=muttrc
+  set askcc
+unset confirmappend
+  set delete
+  set edit_headers
+  set editor            = "vim +:silent+?^$"
+  set fast_reply
+  set folder            = ~/Mail
+  set forward_format    = "Fwd: %s"
+  set forward_quote
+  set header_cache      = ~/.mutt/cache
+unset help
+  set include
+  set index_format      = "%3C %Z %[!%m/%d] %-17.17F %s"
+  set mail_check        = 0
+  set mailcap_path      = ~/.mutt/mailcap
+unset mark_old
+unset markers
+  set mime_forward      = ask-no
+  set mbox_type         = Maildir
+  set menu_scroll
+  set pager_context     = 5
+  set pager_stop
+  set pipe_decode
+  set realname          = "Nayan Deshmukh"
+unset record
+  set reply_to
+  set reverse_name
+  #set signature         = ~/.mutt/signature
+  set sort              = threads
+  set sort_aux          = reverse-last-date-received
+  set spoolfile         = "+Gmail/INBOX"
+  set status_format     = "-%r- %f%?t? Tagged:%t?%?p? Drafts:%p? -%>-"
+  set strict_threads
+  set thorough_search
+  set tilde
+  set timeout           = 3
+  #set tmpdir            = ~/.mutt/temp
 
-bind index G imap-fetch-mail
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+ignore *
+unignore from: to: cc: date: subject:
+hdr_order from: to: cc: date: subject:
 
 alias christian deathsimple@vodafone.de (Christian König)
 alias me ndesh@iitk.ac.in (Nayan Deshmukh)
@@ -23,3 +51,16 @@ alias leo leo.liu@amd.com (Leo Liu)
 alias michel michel@daenzer.net (Michel Dänzer)
 alias mesa mesa-dev@lists.freedesktop.org (Mesa-dev)
 alias dri dri-devel@lists.freedesktop.org (DRI Development)
+
+source ~/.mutt/colors
+source ~/.mutt/mailboxes
+source ~/.mutt/bindings
+source ~/.mutt/macros
+source ~/.mutt/hooks
+# sidebar
+set sidebar_visible=yes
+set sidebar_width=30
+
+set sidebar_delim='|'
+set sidebar_sort=yes
+set sidebar_shortpath = yes

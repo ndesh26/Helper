@@ -1,0 +1,7 @@
+mailboxes \
+  "+Gmail/INBOX" \
+  "+Gmail/Mesa" \
+  "+Gmail/dri-devel" \
+  "+Gmail/CSE" \
+  "+Gmail/IITK" \
+  "+Gmail/Hackcave"
