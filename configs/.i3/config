@@ -31,7 +31,7 @@ font pango: DejaVu Sans Mono for Powerline 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+u exec gnome-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -138,8 +138,9 @@ bindsym $mod+p exec "scrot ~/Downloads/Screenshot%Y-%m-%d%H:%M:%S.png"
 bindsym $mod+t exec ~/.scripts/toggle-wifi.sh
 
 exec --no-startup-id feh --bg-fill ~/Pictures/1.png
-exec xinput set-prop 11 286 1
-exec xinput set-prop 11 278 1
+exec xinput set-prop 11 283 1
+exec xinput set-prop 11 273 1
+exec xinput set-prop 11 281 1.000000
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

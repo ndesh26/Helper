@@ -41,6 +41,7 @@ Plug 'Superbil/llvm.vim', { 'for': 'llvm' }                          " LLVM high
 Plug '~/new_proj/vim/autorun'
 Plug 'powerline/powerline'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'rust-lang/rust.vim'                                            " Rust highlighting
 call plug#end()                                                      " Vundle ends here
 
 set shiftwidth=4                                                     " Indentation
@@ -200,4 +201,3 @@ onoremap ap` :<c-u>normal! F`va`<CR>
 "
 " place ''~/.nvimrc''
 " vim: nowrap:
-
