@@ -23,13 +23,13 @@ Plug 'marcweber/vim-addon-mw-utils'                                  " Vim Addon
 Plug 'garbas/vim-snipmate'                                           " Snippets for reusable code
 Plug 'tpope/vim-fugitive'                                            " Git Wrapper
 Plug 'tomtom/tlib_vim'                                               " Needed for SnipMate :(
-Plug 'auto-pairs-gentle'                                             " Auto insert matching brackets
-Plug 'autoswap.vim'                                                  " Make vim stop with swap messages intelligently
+Plug 'vim-scripts/auto-pairs-gentle'                                 " Auto insert matching brackets
+Plug 'vim-scripts/autoswap.vim'                                      " Make vim stop with swap messages intelligently
 Plug 'godlygeek/tabular'                                             " Beautiful Alignment when needed
 Plug 'plasticboy/vim-markdown'                                       " Better Markdown support for vim (NEEDS TABULAR)
 Plug 'jceb/vim-orgmode'                                              " Add OrgMode support like Emacs
-Plug 'cmdalias.vim'                                                  " Set up alias for accidental commands
-Plug 'Python-Syntax-Folding'                                         " Proper syntax folding for python
+Plug 'vim-scripts/cmdalias.vim'                                      " Set up alias for accidental commands
+Plug 'vim-scripts/Python-Syntax-Folding'                             " Proper syntax folding for python
 Plug 'nvie/vim-flake8'                                               " Point out PEP8 inconsistencies
 Plug 'bling/vim-airline'                                             " Who doesn't know about vim airline plugin
 Plug 'kien/ctrlp.vim'                                                " Fast fuzzy file searching
@@ -42,6 +42,7 @@ Plug '~/new_proj/vim/autorun'
 Plug 'powerline/powerline'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'rust-lang/rust.vim'                                            " Rust highlighting
+Plug 'Valloric/YouCompleteMe'
 call plug#end()                                                      " Vundle ends here
 
 set shiftwidth=4                                                     " Indentation
@@ -111,7 +112,7 @@ set relativenumber                                                   " relative 
 set number                                                           " Line numbers - Hybrid mode when used with rnu
 set nowrap                                                           " I don't like wrapping statements
 set laststatus=2                                                     " Show status line for even 1 file
-set tags=~/.mytags                                                   " Path to generated tags
+set tags=tags;/                                                  " Path to generated tags
 set mouse=nv                                                         " Allow mouse usage in normal and visual modes
 set nohlsearch                                                       " Do not highlight all search suggestions.
 let g:airline_powerline_fonts = 1                                    " Powerline fonts
@@ -184,7 +185,27 @@ onoremap ap' :<c-u>normal! F'va'<CR>
 onoremap ap` :<c-u>normal! F`va`<CR>
 "
 "
+" Remove trailing whitespace
+nnoremap <C-T> :%s/\s\+$//e<CR>
 "
+" Add cscope bindings
+if has('cscope')
+  set cscopetag cscopeverbose
+
+  if has('quickfix')
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
+  endif
+
+  cnoreabbrev csa cs add
+  cnoreabbrev csf cs find
+  cnoreabbrev csk cs kill
+  cnoreabbrev csr cs reset
+  cnoreabbrev css cs show
+  cnoreabbrev csh cs help
+
+  command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+endif
+
 "
 "
 "
