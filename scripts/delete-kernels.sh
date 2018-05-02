@@ -10,12 +10,12 @@ read z
 echo -n "Are you sure (y/n): " 
 x=$(sed "${z}q;d" temp.txt)
 read z
-if [ z='y' ]
+if [ "$z" = "y" ]
 then
     sudo rm -rf "/boot/initramfs-${x}.img"
     sudo rm -rf "/boot/vmlinuz-${x}"
     sudo rm -rf "/boot/System.map-${x}"
     sudo rm -rf "/usr/lib/modules/${x}"
+    ~/.scripts/grub-init.sh
 fi
 rm temp.txt
-~/.scripts/grub-init.sh
