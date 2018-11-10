@@ -7,6 +7,7 @@ endif
 set ttimeoutlen=50
 let g:python_host_prog='/usr/bin/python2'
 call plug#begin('~/.nvim/plugged')
+Plug 'ayu-theme/ayu-vim'
 Plug 'kiteco/plugins'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
@@ -14,6 +15,7 @@ Plug 'lanox/lanox-vim-theme'
 Plug 'scrooloose/nerdcommenter'                                      " Comment fast and professionally
 Plug 'scrooloose/nerdtree' , {'on': 'NERDTreeToggle'}                " Proper file explorer inside vim
 Plug 'flazz/vim-colorschemes'                                        " All popular Colorscheme
+Plug 'rafi/awesome-vim-colorschemes'                                 " More colorschemes
 Plug 'tpope/vim-surround'                                            " Quick Surround with tags or Brackets
 Plug 'octol/vim-cpp-enhanced-highlight'                              " Enhanced syntax highlight for CPP files
 Plug 'Lokaltog/vim-easymotion'                                       " Quick jumping between lines
@@ -42,14 +44,19 @@ Plug '~/new_proj/vim/autorun'
 Plug 'powerline/powerline'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'rust-lang/rust.vim'                                            " Rust highlighting
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 call plug#end()                                                      " Vundle ends here
 
-set shiftwidth=4                                                     " Indentation
+set shiftwidth=8                                                     " Indentation
 syntax on
 filetype plugin indent on
-"set background=dark
+set background=dark
 colorscheme 256-jungle                                              " Set active Colorscheme
+"set termguicolors     " enable true colors support
+"let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+"colorscheme ayu
 nnoremap ,; ;
                                                                      " start commands with ; not :
 nnoremap ; :
@@ -99,8 +106,8 @@ set foldmethod=syntax                                                " Auto Add 
 set foldlevel=9999                                                   " Keep folds open by default
 set scrolloff=10                                                     " Scroll Offset below and above the cursor
 set expandtab                                                        " Replace tab with spaces
-"set tabstop=4                                                        " Tab = 4 Space
-set softtabstop=4                                                    " Act like there are tabs not spaces
+"set tabstop=8                                                        " Tab = 4 Space
+set softtabstop=8                                                    " Act like there are tabs not spaces
 set hidden                                                           " Hide abandoned buffers without message
 set wildmenu                                                         " Tab command completion in vim
 set ignorecase                                                       " Ignore case while searching
@@ -216,7 +223,7 @@ nnoremap <C-P> :%s/\s\+$//e<CR>
 
 " This tests to see if vim was configured with the '--enable-cscope' option
 " when it was compiled.  If it wasn't, time to recompile vim...
-if has("cscope")
+"if has("cscope")
 
     """"""""""""" Standard cscope/vim boilerplate
 
@@ -234,9 +241,23 @@ if has("cscope")
     elseif $CSCOPE_DB != ""
         cs add $CSCOPE_DB
     endif
+    function! LoadCscope()
+        let db = findfile("cscope.out", ".;")
+        if (!empty(db))
+            let path = strpart(db, 0, match(db, "/cscope.out$"))
+            set nocscopeverbose " suppress 'duplicate connection' error
+            exe "cs add " . db . " " . path
+            set cscopeverbose
+        " else add the database pointed to by environment variable 
+        elseif $CSCOPE_DB != "" 
+            cs add $CSCOPE_DB
+        endif
+    endfunction
+    au BufEnter /* call LoadCscope()
 
     " show msg when any other cscope db added
     set cscopeverbose
+    set csre
 
 
     """"""""""""" My cscope/vim key mappings
@@ -287,6 +308,8 @@ if has("cscope")
     nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
+    " Refresh cscope db
+    map <F5> :!cscope -b<CR>:cs reset<CR><CR>
 
     " Using 'CTRL-spacebar' (intepreted as CTRL-@ by vim) then a search type
     " makes the vim window split horizontally, with search result displayed in
@@ -350,4 +373,4 @@ if has("cscope")
     "
     "set ttimeoutlen=100
 
-endif
+"endif
